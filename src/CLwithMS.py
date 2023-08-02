@@ -272,6 +272,3 @@ configuration["parameters"]["production_strategy"] = {
 configuration_JSON_path = os.path.join(output_dir, "CLwithDocking_config.json")
 with open(configuration_JSON_path, 'w') as f:
     json.dump(configuration, f, indent=4)
-
-with open(docking_path, 'w') as f:
-    json.dump(ed_dict, f, indent=2)
