@@ -124,8 +124,8 @@ configuration["logging"] = {
 # add the "parameters" block for QSAR
 configuration["parameters"] = {
 
-    "actor": os.path.join(ipynb_path, "./ReinventCommunity/notebooks/models/library_design.prior"),
-    "critic": os.path.join(ipynb_path, "./ReinventCommunity/notebooks/models/library_design.prior"),
+    "actor": "./ReinventCommunity/notebooks/models/library_design.prior",
+    "critic": "./ReinventCommunity/notebooks/models/library_design.prior",
     "scaffolds": ["C1=CC2=C(C=CC=N2)N=C1", "C1=CC=NC(=C1)N","C1=CC2=NC=CN2N=C1"],
     "randomize_scaffolds": True, # important since a RF is to be imposed
 }
@@ -218,7 +218,7 @@ configuration["parameters"]["curriculum_strategy"] = {
                     "component_type": "predictive_property",
                     "name": "DRD2", #Receptor type: change to PFPI4K
                     "weight": 1,
-                    "model_path": os.path.join(project_directory, "./models/drd2.pkl"),
+                    "model_path": "./models/drd2.pkl",
                     "smiles": ["C1=CC2=C(C=CC=N2)N=C1", "C1=CC=NC(=C1)N","C1=CC2=NC=CN2N=C1"],
                     "specific_parameters": [{
                         "transformation_type": "no_transformation",
