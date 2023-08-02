@@ -161,7 +161,7 @@ configuration["parameters"]["curriculum_strategy"] = {
         }
     },
     "diversity_filter": {
-        "name": "NoFilterWithPenalty",         # other options are: "IdenticalTopologicalScaffold", "IdenticalMurckoScaffold", and "ScaffoldSimilarity"
+        "name": "NoFilter",         # other options are: "IdenticalTopologicalScaffold", "IdenticalMurckoScaffold", and "ScaffoldSimilarity"
         #Previously NoFilter was used
         "bucket_size": 25,          # the bin size; penalization will start once this is exceeded
         "minscore": 0.4,            # the minimum total score to be considered for binning
