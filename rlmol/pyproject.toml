@@ -1,0 +1,9 @@
+[project]
+name = "rlmol"
+version = "0.0.1"
+description = "Reinforcement learning based automatic drug design algorithm"
+readme = "readme.md"
+authors = [{ name = "Rob Maccallum" }]
+
+[tool.autopep8]
+max_line_length = 80

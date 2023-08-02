@@ -1,0 +1,27 @@
+chemistry:
+  atom_types: ["C", "O", "N"]
+  allow_no_modification: True
+  allow_removal: True
+  allow_bonds_between_rings: False
+  allowed_ring_sizes: [3, 4, 5, 6]
+
+training:
+  max_steps: 40
+  reward_discount_factor: 0.9
+  starting_molecule: "C"
+
+docking-vina:
+  receptor-pdb: "pfpi4k-no-ligand"
+  receptor: "pfpi4k-no-ligand.pdbqt"
+  center: [6.980, 335.600, 8.060]
+  box_size: [40, 40, 40]
+  exhaustiveness: 32
+  n_poses: 20
+  spacing: 0.375
+
+docking_autodock_pfpi4k:
+  receptor: "pfpi4k-no-ligand"
+  grid_file: "pfpi4k-docking-box.txt"
+  nruns: 10
+
+pfpi4k-receptor: "pfpi4k-no-ligand"

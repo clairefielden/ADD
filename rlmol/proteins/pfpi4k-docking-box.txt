@@ -1,0 +1,4 @@
+PfPI4K_template1
+spacing    0.375
+npts       40 40 40
+center     6.980 335.600  8.060
