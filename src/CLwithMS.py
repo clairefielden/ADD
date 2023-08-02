@@ -211,26 +211,17 @@ configuration["parameters"]["curriculum_strategy"] = {
         # 3rd scoring function: produce drugs with napthyridine/aminopyridine/imidazopyridazine (MPO) using QSAR
         {
             "scoring_function": {
-                #QSAR
-                "name": "custom_product",
-                "parallel": False,
-                "parameters": [{
-                    "component_type": "predictive_property",
-                    "name": "DRD2", #Receptor type: change to PFPI4K
-                    "weight": 1,
-                    "model_path": "./models/drd2.pkl",
-                    "smiles": ["C1=CC2=C(C=CC=N2)N=C1", "C1=CC=NC(=C1)N","C1=CC2=NC=CN2N=C1"],
-                    "specific_parameters": [{
-                        "transformation_type": "no_transformation",
-                        "scikit": "classification",
-                        "transformation": False,
-                        "descriptor_type": "ecfp",
-                        "size": 2048,
-                        "radius": 3
-                        }]
-                    }]
+            "name": "custom_product",
+            "parallel": False,
+            "parameters": [{
+                "component_type": "matching_substructure",
+                "name": "Full Substructure",
+                "specific_parameters": {
+                    "smiles": ["C1=CC2=C(C=CC=N2)N=C1", "C1=CC=NC(=C1)N","C1=CC2=NC=CN2N=C1"]
+                },
+                "weight": 1}]
             },
-            "score_threshold": 0.5
+        "score_threshold": 0.5
         }
     ]}
     
