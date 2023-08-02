@@ -161,9 +161,8 @@ configuration["parameters"]["curriculum_strategy"] = {
         }
     },
     "diversity_filter": {
-        "name": "NoFilterWithPenalty",         # other options are: "IdenticalTopologicalScaffold",
-        #                    "IdenticalMurckoScaffold", and "ScaffoldSimilarity"
-
+        "name": "NoFilterWithPenalty",         # other options are: "IdenticalTopologicalScaffold", "IdenticalMurckoScaffold", and "ScaffoldSimilarity"
+        #Previously NoFilter was used
         "bucket_size": 25,          # the bin size; penalization will start once this is exceeded
         "minscore": 0.4,            # the minimum total score to be considered for binning
         "minsimilarity": 0.4        # the minimum similarity to be placed into the same bin
@@ -192,7 +191,7 @@ configuration["parameters"]["curriculum_strategy"] = {
             }]            
             # the weight of the component (default: 1)
         },
-        "score_threshold": 0.8            # agent must achieve an average score of this before
+        "score_threshold": 0.5            # agent must achieve an average score of this before
         # progressing to the next Curriculum Objective
         },
         # 2nd scoring function/curriculum objective is to obtain high QED
@@ -207,7 +206,7 @@ configuration["parameters"]["curriculum_strategy"] = {
                     "weight": 1 # the weight of the component (default: 1)
                 }]
             },
-            "score_threshold": 0.8
+            "score_threshold": 0.5
         },
         # 3rd scoring function: produce drugs with napthyridine/aminopyridine/imidazopyridazine (MPO) using QSAR
         {
@@ -231,7 +230,7 @@ configuration["parameters"]["curriculum_strategy"] = {
                         }]
                     }]
             },
-            "score_threshold": 0.8
+            "score_threshold": 0.5
         }
     ]}
     
@@ -242,7 +241,7 @@ configuration["parameters"]["production_strategy"] = {
     # retain it here since the last Curriculum Objective is the same as
     # Production Objective. Previous top compounds will be relevant
 
-    "number_of_steps":  3500,         # number of epochs to run the Production Phase
+    "number_of_steps": 3500,         # number of epochs to run the Production Phase
     "batch_size": 128,              # specifies how many molecules are generated per epoch
     "learning_rate": 0.0001,        # sets how strongly the agent is influenced by each epoch
     "sigma": 128,                   # used to calculate the "augmented likelihood", see publication
