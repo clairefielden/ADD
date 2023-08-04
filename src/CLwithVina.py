@@ -9,97 +9,97 @@ reinvent_dir = os.path.expanduser("./Reinvent")
 reinvent_env = os.path.expanduser("/usr/local/envs/reinvent.v3.2")
 output_dir = os.path.expanduser("./Dockstream_CL")
 
-# DockStream variables
-dockstream_dir = os.path.expanduser("./DockStream")
-dockstream_env = os.path.expanduser("/usr/local/envs/DockStream")
-# generate the path to the DockStream entry points
-docker_path = os.path.join(dockstream_dir, "docker.py")
-
-# Glide docking variables
-grid_file_path = os.path.expanduser("./DockStream/1UYD_grid.zip")
-output_ligands_docked_poses_path = os.path.expanduser("./Dockstream_CL/docked_poses")
-output_ligands_docking_scores_path = os.path.expanduser("./Dockstream_CL/docking_scores")
-
-try:
-    os.mkdir(output_ligands_docked_poses_path)
-except FileExistsError:
-    pass
-
-try:
-    os.mkdir(output_ligands_docking_scores_path)
-except FileExistsError:
-    pass
-
-docking_configuration_path = os.path.join(output_dir, "Glide_DockStream_Conf.json")
-
-# specify the embedding and docking JSON file as a dictionary and write it out
-ed_dict = {
-    "docking": {
-        "header": {                                   # general settings
-            "environment": {
-            }
-        },
-        "ligand_preparation": {                       # the ligand preparation part, defines how to build the pool
-            "embedding_pools": [
-                {
-                    "pool_id": "Ligprep_pool",
-                    "type": "Ligprep",
-                    "parameters": {
-                        "prefix_execution": "module load schrodinger/2019-4",
-                        "parallelization": {
-                            "number_cores": 2
-                        },
-                        "use_epik": {
-                            "target_pH": 7.0,
-                            "pH_tolerance": 2.0
-                        },
-                        "force_field": "OPLS3e"
-                    },
-                    "input": {
-                        "standardize_smiles": False,
-                        "type": "console"                     # input type "console" when using DockStream with REINVENT
-                    }
-                }
-            ]
-        },
-        "docking_runs": [
-            {
-                "backend": "Glide",
-                "run_id": "Glide_run",
-                "input_pools": ["Ligprep_pool"],
-                "parameters": {
-                    "prefix_execution": "module load schrodinger/2020-4", # will be executed before a program call
-                    "parallelization": {                                  # if present, the number of cores to be used
-                        # can be specified
-                        "number_cores": 2
-                    },
-                    "glide_flags": {                                  # all all command-line flags for Glide here
-                        "-HOST": "localhost"
-                    },
-                    "glide_keywords": {                               # add all keywords for the "input.in" file here
-                        # this is the minimum keywords that needs to be
-                        # specified and represents a simple `Glide`
-                        # docking configuration
-
-                        "GRIDFILE": grid_file_path,
-                        "POSE_OUTTYPE": "ligandlib_sd",
-                        "PRECISION": "HTVS"
-                    }
-                },
-                "output": {
-                    "poses": { "poses_path": os.path.join(output_ligands_docked_poses_path, "docked_poses.sdf")},
-                    "scores": { "scores_path": os.path.join(output_ligands_docking_scores_path, "docking_scores.csv")}
-                }
-            }]}}
-
-with open(docking_configuration_path, 'w') as f:
-    json.dump(ed_dict, f, indent=2)
-
 # if required, generate a folder to store the results
 try:
     os.mkdir(output_dir)
 except FileExistsError:
     pass
+
+# DockStream variables
+dockstream_dir = os.path.expanduser("./DockStream")
+dockstream_env = os.path.expanduser("/usr/local/envs/DockStream")
+# generate the path to the DockStream entry points
+docker = os.path.join(dockstream_dir, "docker.py")
+target_preparator = dockstream_dir + "/target_preparator.py"
+
+# Vina docking variables
+vina_binary_location = os.path.expanduser("./autodock_vina_1_1_2_linux_x86/bin")
+
+docking_configuration_path = os.path.join(output_dir, "Vina_DockStream_Conf.json")
+
+# generate the paths to the PfPI4K receptor
+adv_receptor_path = "./models/pfpi4k-no-ligand.pdbqt"
+log_file_target_prep = output_dir + "/ADV_target_prep.log"
+log_file_docking = output_dir + "/ADV_docking.log"
+
+# generate output paths for the configuration file, embedded ligands, the docked ligands and the scores
+docking_path = output_dir + "/ADV_docking.json"
+ligands_conformers_path = output_dir + "/ADV_embedded_ligands.sdf"
+ligands_docked_path = output_dir + "/ADV_ligands_docked.sdf"
+ligands_scores_path = output_dir + "/ADV_scores.csv"
+
+# specify the embedding and docking JSON file as a dictionary and write it out
+ed_dict = {
+  "docking": {
+    "header": {                                         # general settings
+      "logging": {                                      # logging settings (e.g. which file to write to)
+        "logfile": log_file_docking
+      }
+    },
+    "ligand_preparation": {                             # the ligand preparation part, defines how to build the pool
+      "embedding_pools": [
+        {
+          "pool_id": "Corina_pool",                     # here, we only have one pool
+          "type": "Corina",
+          "parameters": {
+            "prefix_execution": "module load corina",    # only required, if a module needs to be loaded to execute "Corina"
+            "removeHs": False
+          },
+          "input": {
+            "standardize_smiles": False,
+            "type": "console"
+          },
+          "output": {                                   # the conformers can be written to a file, but "output" is not required as the ligands are forwarded internally
+            "conformer_path": ligands_conformers_path, 
+            "format": "sdf"
+          }
+        }
+      ]
+    },
+    "docking_runs": [
+    {
+      "backend": "AutoDockVina",
+      "run_id": "AutoDockVina",
+      "input_pools": ["Corina_pool"],
+      "parameters": {
+        "binary_location": vina_binary_location,        # absolute path to the folder, where the "vina" binary
+                                                        # can be found
+        "parallelization": {
+          "number_cores": 4
+        },
+        "seed": 42,                                     # use this "seed" to generate reproducible results; if
+                                                        # varied, slightly different results will be produced
+        "receptor_pdbqt_path": [adv_receptor_path],     # paths to the receptor files
+        "number_poses": 2,                              # number of poses to be generated
+        "search_space": {                               # search space (cavity definition); see text
+          "--center_x": 3.3,
+          "--center_y": 11.5,
+          "--center_z": 24.8,
+          "--size_x": 15,
+          "--size_y": 10,
+          "--size_z": 10
+        }
+      },
+      "output": {
+        "poses": { "poses_path": ligands_docked_path, "overwrite": false },
+        "scores": { "scores_path": ligands_scores_path, "overwrite": false }
+}}]}}
+
+with open(docking_path, 'w') as f:
+    json.dump(ed_dict, f, indent=2)
+
+# print out path to generated JSON
+print(docking_path)
 
 # initialize the dictionary
 configuration = {
@@ -211,7 +211,7 @@ configuration["parameters"]["curriculum_strategy"] = {
     ]
 }
 
-# set up the Curriculum Strategy
+# set up the Production Strategy
 configuration["parameters"]["production_strategy"] = {
     "name": "standard",
     "retain_inception": True,       # option to retain the inception from the Curriculum Phase
@@ -249,14 +249,14 @@ configuration["parameters"]["production_strategy"] = {
         "parallel": False,
         "parameters": [{
             "component_type": "dockstream",
-            "name": "Glide LigPrep Docking",
+            "name": "Autodock Vina Docking",
             "weight": 1,
             "specific_parameters": {
                 "transformation": {
-                    "transformation_type": "reverse_sigmoid",         # lower Glide scores are better - use reverse
+                    "transformation_type": "reverse_sigmoid",         # lower/more negative Autodock scores are better - use reverse
                     # sigmoid transformation
-                    "low": -11,
-                    "high": -5,
+                    "low": -12,
+                    "high": -8,
                     "k": 0.25
                 },
                 "configuration_path": docking_configuration_path,
