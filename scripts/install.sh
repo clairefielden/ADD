@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OUTPUT_DIR="Dockstream_CL"
+OUTPUT_DIR="CL_Results"
 
 # Script for preparing Reinvent and Dockstream
 red='\033[0;31m'
@@ -10,19 +10,16 @@ clear='\033[0m'
 
 echo -e "${red}Note:${clear} Ensure that conda has been installed correctly."
 # Prepare Reinvent environment
-cd Reinvent && conda env create -f reinvent.yml
+mamba shell init
+cd Reinvent && mamba env create -f reinvent.yml
 cd ..
 # Prepare Dockstream Environment
-cd DockStream && conda env create -f environment.yml
+cd DockStream && mamba env create -f environment.yml
 cd ..
-# Prepare ReinventCommunity environment
-cd ReinventCommunity && conda env create -f reinvent.yml
-cd ..
-# Prepare DockStreamCommunity Environment
-cd DockStreamCommunity && conda env create -f environment.yml
-cd ..
+#Prepare RLMOL Environment
+cd rlmol && mamba env create -f env.yml
 # Init bash
-conda init bash
+mamba init bash
 
 # Create output directory
 if ! test -d "$OUTPUT_DIR"; then

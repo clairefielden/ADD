@@ -7,18 +7,22 @@ import tempfile
 # --------- change these path variables as required
 reinvent_dir = os.path.expanduser("./Reinvent")
 reinvent_env = os.path.expanduser("/usr/local/envs/reinvent.v3.2")
-output_dir = os.path.expanduser("./Dockstream_CL")
+output_dir = os.path.expanduser("./CL_Results")
 
+try:
+    os.mkdir(output_dir)
+except FileExistsError:
+    pass
+
+# Glide docking variables
 # DockStream variables
 dockstream_dir = os.path.expanduser("./DockStream")
 dockstream_env = os.path.expanduser("/usr/local/envs/DockStream")
 # generate the path to the DockStream entry points
 docker_path = os.path.join(dockstream_dir, "docker.py")
-
-# Glide docking variables
-grid_file_path = os.path.expanduser("./DockStream/1UYD_grid.zip")
-output_ligands_docked_poses_path = os.path.expanduser("./Dockstream_CL/docked_poses")
-output_ligands_docking_scores_path = os.path.expanduser("./Dockstream_CL/docking_scores")
+grid_file_path = os.path.expanduser("./ReinventCommunity/notebooks/data/DockStream/1UYD_grid.zip")
+output_ligands_docked_poses_path = os.path.expanduser("./CL_Results/docked_poses")
+output_ligands_docking_scores_path = os.path.expanduser("./CL_Results/docking_scores")
 
 try:
     os.mkdir(output_ligands_docked_poses_path)
@@ -34,72 +38,69 @@ docking_configuration_path = os.path.join(output_dir, "Glide_DockStream_Conf.jso
 
 # specify the embedding and docking JSON file as a dictionary and write it out
 ed_dict = {
-    "docking": {
-        "header": {                                   # general settings
-            "environment": {
-            }
+  "docking": {
+    "header": {                                   # general settings
+      "environment": {
+      }
+    },
+    "ligand_preparation": {                       # the ligand preparation part, defines how to build the pool
+      "embedding_pools": [
+        {
+          "pool_id": "Ligprep_pool",
+          "type": "Ligprep",
+          "parameters": {
+            "prefix_execution": "module load schrodinger/2019-4",
+            "parallelization": {
+                "number_cores": 2
+            },
+            "use_epik": {
+              "target_pH": 7.0,
+              "pH_tolerance": 2.0
+            },
+            "force_field": "OPLS3e"
+          },
+          "input": {
+            "standardize_smiles": False,
+            "input_path": "console"                              # expected input is a text file with smiles
+          }
+        }
+      ]
+    },
+    "docking_runs": [
+        {
+          "backend": "Glide",
+          "run_id": "Glide_run",
+        "input_pools": ["Ligprep_pool"],
+        "parameters": {
+          "prefix_execution": "module load schrodinger/2019-4", # will be executed before a program call
+          "parallelization": {                              # if present, the number of cores to be used
+                                                            # can be specified
+            "number_cores": 2
+          },
+          "glide_flags": {                                  # all all command-line flags for Glide here 
+            "-HOST": "localhost"
+          },
+          "glide_keywords": {                               # add all keywords for the "input.in" file here
+            "AMIDE_MODE": "trans",
+            "EXPANDED_SAMPLING": "True",
+            "GRIDFILE": grid_file_path,
+            "NENHANCED_SAMPLING": "2",
+            "POSE_OUTTYPE": "ligandlib_sd",
+            "POSES_PER_LIG": "3",
+            "POSTDOCK_NPOSE": "15",
+            "POSTDOCKSTRAIN": "True",
+            "PRECISION": "HTVS",
+            "REWARD_INTRA_HBONDS": "True"
+          }
         },
-        "ligand_preparation": {                       # the ligand preparation part, defines how to build the pool
-            "embedding_pools": [
-                {
-                    "pool_id": "Ligprep_pool",
-                    "type": "Ligprep",
-                    "parameters": {
-                        "prefix_execution": "module load schrodinger/2019-4",
-                        "parallelization": {
-                            "number_cores": 2
-                        },
-                        "use_epik": {
-                            "target_pH": 7.0,
-                            "pH_tolerance": 2.0
-                        },
-                        "force_field": "OPLS3e"
-                    },
-                    "input": {
-                        "standardize_smiles": False,
-                        "type": "console"                     # input type "console" when using DockStream with REINVENT
-                    }
-                }
-            ]
-        },
-        "docking_runs": [
-            {
-                "backend": "Glide",
-                "run_id": "Glide_run",
-                "input_pools": ["Ligprep_pool"],
-                "parameters": {
-                    "prefix_execution": "module load schrodinger/2020-4", # will be executed before a program call
-                    "parallelization": {                                  # if present, the number of cores to be used
-                        # can be specified
-                        "number_cores": 2
-                    },
-                    "glide_flags": {                                  # all all command-line flags for Glide here
-                        "-HOST": "localhost"
-                    },
-                    "glide_keywords": {                               # add all keywords for the "input.in" file here
-                        # this is the minimum keywords that needs to be
-                        # specified and represents a simple `Glide`
-                        # docking configuration
-
-                        "GRIDFILE": grid_file_path,
-                        "POSE_OUTTYPE": "ligandlib_sd",
-                        "PRECISION": "HTVS"
-                    }
-                },
-                "output": {
-                    "poses": { "poses_path": os.path.join(output_ligands_docked_poses_path, "docked_poses.sdf")},
-                    "scores": { "scores_path": os.path.join(output_ligands_docking_scores_path, "docking_scores.csv")}
-                }
-            }]}}
+        "output": {
+          "poses": { "poses_path": output_ligands_docked_poses_path},
+          "scores": { "scores_path": output_ligands_docking_scores_path}
+        }
+      }]}}
 
 with open(docking_configuration_path, 'w') as f:
     json.dump(ed_dict, f, indent=2)
-
-# if required, generate a folder to store the results
-try:
-    os.mkdir(output_dir)
-except FileExistsError:
-    pass
 
 # initialize the dictionary
 configuration = {
@@ -133,7 +134,7 @@ configuration["parameters"]["curriculum_type"] = "automated"
 # set up the Curriculum Strategy
 configuration["parameters"]["curriculum_strategy"] = {
     "name": "user_defined",         # denotes that the order of Curriculum Objectives is defined by the user
-    "max_num_iterations": 1500,     # denotes the total number of epochs to spend in the Curriculum Phase
+    "max_num_iterations": 3000,     # denotes the total number of epochs to spend in the Curriculum Phase
     # if by the end of the total epochs the last Curriculum Objective is not
     # satisfied (based on the agent achieving a score >= threshold), the run stops
     "batch_size": 128,              # specifies how many molecules are generated per epoch
@@ -146,7 +147,7 @@ configuration["parameters"]["curriculum_strategy"] = {
         }
     },
     "diversity_filter": {
-        "name": "NoFilter",         # other options are: "IdenticalTopologicalScaffold",
+        "name": "IdenticalMurckoScaffold",         # other options are: "IdenticalTopologicalScaffold",
         #                    "IdenticalMurckoScaffold", and "ScaffoldSimilarity"
 
         "bucket_size": 25,          # the bin size; penalization will start once this is exceeded
@@ -176,7 +177,7 @@ configuration["parameters"]["curriculum_strategy"] = {
                 }
             }]             # the weight of the component (default: 1)
         },
-        "score_threshold": 0.5            # agent must achieve an average score of this before
+        "score_threshold": 0.8            # agent must achieve an average score of this before
         # progressing to the next Curriculum Objective
     },
         # 2nd scoring function/curriculum objective is to obtain high QED
@@ -191,7 +192,7 @@ configuration["parameters"]["curriculum_strategy"] = {
                     "weight": 1 # the weight of the component (default: 1)
                 }]
             },
-            "score_threshold": 0.5
+            "score_threshold": 0.8
         },
         # 3rd scoring function: Matching Substructure
         {
@@ -206,36 +207,37 @@ configuration["parameters"]["curriculum_strategy"] = {
                 },
                 "weight": 1}]
             },
-        "score_threshold": 0.5
+        "score_threshold": 0.8
         }
     ]
 }
 
-# set up the Curriculum Strategy
+# set up the Production Strategy
 configuration["parameters"]["production_strategy"] = {
-    "name": "standard",
-    "retain_inception": True,       # option to retain the inception from the Curriculum Phase
-    # retain it here since the last Curriculum Objective is the same as
-    # Production Objective. Previous top compounds will be relevant
-
-    "number_of_steps": 3500,         # number of epochs to run the Production Phase
-    "batch_size": 128,              # specifies how many molecules are generated per epoch
-    "learning_rate": 0.0001,        # sets how strongly the agent is influenced by each epoch
-    "sigma": 128,                   # used to calculate the "augmented likelihood", see publication
-    "learning_strategy": {
-        "name": "dap_single_query",
-        "parameters": {
-            "sigma": 120
+  "name": "standard",
+  "retain_inception": True,       # option to retain the inception from the Curriculum Phase
+                                    # retain it here since the last Curriculum Objective is the same as
+                                    # Production Objective. Previous top compounds will be relevant
+    
+  "number_of_steps": 3500,         # number of epochs to run the Production Phase
+  "batch_size": 128,              # specifies how many molecules are generated per epoch
+  "learning_rate": 0.0001,        # sets how strongly the agent is influenced by each epoch
+  "sigma": 128,                   # used to calculate the "augmented likelihood", see publication
+  "learning_strategy": {
+      "name": "dap_single_query",
+      "parameters": {
+          "sigma": 120
         }
     },
-    "diversity_filter": {
-        "name": "NoFilter",         # other options are: "IdenticalTopologicalScaffold",
-        #                    "IdenticalMurckoScaffold"", and "ScaffoldSimilarity"
+"diversity_filter": {
+        "name": "IdenticalMurckoScaffold",         # other options are: "IdenticalTopologicalScaffold",
+                                    #                    "IdenticalMurckoScaffold"", and "ScaffoldSimilarity"
 
         "bucket_size": 25,          # the bin size; penalization will start once this is exceeded
         "minscore": 0.4,            # the minimum total score to be considered for binning
         "minsimilarity": 0.4        # the minimum similarity to be placed into the same bin
     },
+
     "inception": {
         "smiles": [],               # fill in a list of SMILES here that can be used (or leave empty)
         "memory_size": 100,         # sets how many molecules are to be remembered
@@ -245,30 +247,35 @@ configuration["parameters"]["production_strategy"] = {
     # here, it is the same scoring function as the last Curriculum Objective
     # as we want to continue sampling the target substructure
     "scoring_function": {
-        "name": "custom_product",
-        "parallel": False,
-        "parameters": [{
-            "component_type": "dockstream",
-            "name": "Glide LigPrep Docking",
-            "weight": 1,
-            "specific_parameters": {
-                "transformation": {
-                    "transformation_type": "reverse_sigmoid",         # lower Glide scores are better - use reverse
-                    # sigmoid transformation
-                    "low": -11,
-                    "high": -5,
-                    "k": 0.25
-                },
-                "configuration_path": docking_configuration_path,
-                "docker_script_path": docker_path,
-                "environment_path": dockstream_env
-            },
-            "weight": 1}]
+           "name": "custom_product",                  # this is our default one (alternative: "custom_sum")
+            "parallel": False,                         # sets whether components are to be executed
+                                               # in parallel; note, that python uses "False" / "True"
+                                               # but the JSON "false" / "true"
+
+            # the "parameters" list holds the individual components
+            "parameters": [
+
+            # add component: use 
+            {
+              "component_type": "dockstream",                           # use DockStream as a Scoring Function component      
+              "name": "Glide LigPrep Docking",                          # arbitrary name
+              "weight": 1,
+              "specific_parameters": {
+                  "transformation": {
+                      "transformation_type": "reverse_sigmoid",         # lower Glide scores are better - use reverse
+                                                              # sigmoid transformation
+                      "low": -11,
+                      "high": -5,
+                      "k": 0.25
+                  },
+        "configuration_path": docking_configuration_path,
+        "docker_script_path": docker_path,
+        "environment_path": dockstream_env
+        }
+    }]
     }
 }
 
-#configuration["parameters"]["scoring_function"] = scoring_function
-
-configuration_JSON_path = os.path.join(output_dir, "CLwithDocking_config.json")
+configuration_JSON_path = os.path.join(output_dir, "CL_config.json")
 with open(configuration_JSON_path, 'w') as f:
     json.dump(configuration, f, indent=4)
