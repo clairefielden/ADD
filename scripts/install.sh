@@ -9,12 +9,17 @@ magenta='\033[0;35m'
 clear='\033[0m'
 
 echo -e "${red}Note:${clear} Ensure that conda has been installed correctly."
-
 # Prepare Reinvent environment
 cd Reinvent && conda env create -f reinvent.yml
 cd ..
 # Prepare Dockstream Environment
 cd DockStream && conda env create -f environment.yml
+cd ..
+# Prepare ReinventCommunity environment
+cd ReinventCommunity && conda env create -f reinvent.yml
+cd ..
+# Prepare DockStreamCommunity Environment
+cd DockStreamCommunity && conda env create -f environment.yml
 cd ..
 # Init bash
 conda init bash

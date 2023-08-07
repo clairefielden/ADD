@@ -1,0 +1,13 @@
+runs
+src/__pycache__
+test/__pycache__
+.vscode
+*.txt
+*.pdb
+*mol*
+*.dlg
+*.dpf
+*.pdbqt
+*.map*
+*.gpf*
+summary_of_results*

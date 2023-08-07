@@ -84,7 +84,7 @@ class MoleculeEnvironment(RLEnvironmentInterface):
         return options, reward_tensor, terminal
 
     def reset(self):
-        self.state = self.config.training.starting_molecule
+        self.state = self.config['training']['starting_molecule']
         self.step_counter = 0
         self.actions_sequence = [self.state]
         self.valid_actions = list(chemistry.get_valid_actions(

@@ -91,8 +91,8 @@ ed_dict = {
         }
       },
       "output": {
-        "poses": { "poses_path": ligands_docked_path, "overwrite": false },
-        "scores": { "scores_path": ligands_scores_path, "overwrite": false }
+        "poses": { "poses_path": ligands_docked_path, "overwrite": False },
+        "scores": { "scores_path": ligands_scores_path, "overwrite": False }
 }}]}}
 
 with open(docking_path, 'w') as f:
@@ -260,7 +260,7 @@ configuration["parameters"]["production_strategy"] = {
                     "k": 0.25
                 },
                 "configuration_path": docking_configuration_path,
-                "docker_script_path": docker_path,
+                "docker_script_path": docker,
                 "environment_path": dockstream_env
             },
             "weight": 1}]

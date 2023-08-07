@@ -122,7 +122,7 @@ class Agent():
 
     def shape_step_reward(self, final_state_reward, steps_remaining):
         rf = final_state_reward
-        tmax = self.train_env.max_steps
+        tmax = self.train_env.config['training']['max_steps']
         ti = steps_remaining
         return (rf - (rf/tmax)*(ti-1))
 

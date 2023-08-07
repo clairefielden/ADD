@@ -1,7 +1,6 @@
 .ONESHELL:
 SHELL=/bin/zsh
 PYTHON:=python3
-PIP:=pip3
 ENV_NAME:=rlmol
 ENV_FILE:=env.yml
 RUN:=main
@@ -9,7 +8,7 @@ RECEPTOR_PREP:=src.docker
 RECEPTOR_PREP_PYTHON:=~/micromamba/envs/$(ENV_NAME)/bin/python2.7
 ACTIVATE=source $($ MAMBA_ROOT_PREFIX)/etc/profile.d/micromamba.sh ; micromamba activate
 docker=vina
-receptor=""
+receptor="/home/fieldy/rlmol/PfPI4K_template1.pdb"
 
 .PHONY: list install uninstall create remove receptor test run clean
 

@@ -42,6 +42,7 @@ def dock_cpu(ligand_name, receptor_name):
 
 
 def get_binding_affinity_cpu() -> float:
+    print(conda_prefix)
     args = [mgltools_python, summarize_results_exec,
             "-d", ".",  # directory to read
             "-b"]  # best docking info only
