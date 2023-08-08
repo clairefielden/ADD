@@ -3,6 +3,8 @@ import argparse
 import pathlib
 import logging
 import yaml
+import csv
+import pathlib
 
 """logger = logging.getLogger(__name__)
 logging.basicConfig(format='%(levelname)s : %(module)s : %(asctime)s : %(message)s',
@@ -46,11 +48,35 @@ imidazopyridazine = 'C1=CC2=NC=CN2N=C1'
                 #nruns=10,
                 #starting_mol=napthyridine)
 
-with open('./config.yml', 'r') as file:
-        config = yaml.safe_load(file)
 
-e = environment.AutodockEnvironment(config)
+files = [f for f in pathlib.Path().glob("./CL_Scaffolds/*.csv")]
+print(len(files))
 
-a = agent.Agent(e)
+my_file =files[len(files)-1]
+scaffolds = []
 
-a.train()
+with open(my_file, 'r') as file:
+     csvreader = csv.reader(file)
+     for row in csvreader:
+        scaffolds.append(row[1])
+     
+
+for scaffold in range(0,10):
+        with open('./config.yml') as f:
+            doc = yaml.safe_load(f)
+
+        doc['training']['starting_molecule'] = scaffolds.pop()
+        print(doc['training']['starting_molecule'])
+
+        with open('./config.yml', 'w') as f:
+            yaml.safe_dump(doc, f)
+
+        with open('./config.yml', 'r') as file:
+            config = yaml.safe_load(file)
+
+        e = environment.AutodockEnvironment(config)
+
+        a = agent.Agent(e)
+
+        a.train()
+

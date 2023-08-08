@@ -177,7 +177,7 @@ configuration["parameters"]["curriculum_strategy"] = {
                 }
             }]             # the weight of the component (default: 1)
         },
-        "score_threshold": 0.8            # agent must achieve an average score of this before
+        "score_threshold": 0.5            # agent must achieve an average score of this before
         # progressing to the next Curriculum Objective
     },
         # 2nd scoring function/curriculum objective is to obtain high QED
