@@ -22,6 +22,6 @@ docking-vina:
 docking_autodock_pfpi4k:
   receptor: "pfpi4k-no-ligand"
   grid_file: "pfpi4k-docking-box.txt"
-  nruns: 1
+  nruns: 10
 
 pfpi4k-receptor: "pfpi4k-no-ligand"
