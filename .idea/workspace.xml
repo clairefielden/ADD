@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a8afff33-6014-403c-8247-f0ebc36ed169" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/DockStream/dockstream/utils/enums/Schrodinger_enums.py" beforeDir="false" afterPath="$PROJECT_DIR$/DockStream/dockstream/utils/enums/Schrodinger_enums.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DockStream/environment_full.yml" beforeDir="false" afterPath="$PROJECT_DIR$/DockStream/environment_full.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DockStream/tests/tests_data/Schrodinger/licadmin_output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/DockStream/tests/tests_data/Schrodinger/licadmin_output.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DockStream/tests/tests_paths.py" beforeDir="false" afterPath="$PROJECT_DIR$/DockStream/tests/tests_paths.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DockStream/unit_tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/DockStream/unit_tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/install.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/install.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CLwithVina.py" beforeDir="false" afterPath="$PROJECT_DIR$/chpc_src/CLwithVina.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/QED_05.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/QED_05.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/QED_08.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/QED_08.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TM_05.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/TM_05.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TM_08.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/TM_08.py" afterDir="false" />
-    </list>
+    <list default="true" id="a8afff33-6014-403c-8247-f0ebc36ed169" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
