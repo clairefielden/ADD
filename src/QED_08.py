@@ -5,9 +5,11 @@ import json
 import tempfile
 
 # --------- change these path variables as required
-reinvent_dir = os.path.expanduser("./Reinvent")
-reinvent_env = os.path.expanduser("/usr/local/envs/reinvent.v3.2")
-output_dir = os.path.expanduser("./CL_Results")
+abs_path_to_file = "/mnt/e/PycharmProjects/ADD"
+
+reinvent_dir = os.path.join(abs_path_to_file,"Reinvent")
+reinvent_env = os.path.expanduser("/home/brandon/.conda/envs/reinvent.v3.2")
+output_dir = os.path.join(abs_path_to_file,"CL_Results")
 
 try:
     os.mkdir(output_dir)
@@ -16,13 +18,13 @@ except FileExistsError:
 
 # Glide docking variables
 # DockStream variables
-dockstream_dir = os.path.expanduser("./DockStream")
-dockstream_env = os.path.expanduser("/usr/local/envs/DockStream")
+dockstream_dir = os.path.join(abs_path_to_file,"DockStream")
+dockstream_env = os.path.join("/home/brandon/.conda/envs/DockStream/bin/python")
 # generate the path to the DockStream entry points
 docker_path = os.path.join(dockstream_dir, "docker.py")
-grid_file_path = os.path.expanduser("./ReinventCommunity/notebooks/data/DockStream/1UYD_grid.zip")
-output_ligands_docked_poses_path = os.path.expanduser("./CL_Results/docked_poses")
-output_ligands_docking_scores_path = os.path.expanduser("./CL_Results/docking_scores")
+grid_file_path = os.path.join(abs_path_to_file,"models/pfpi4k_grid.zip")
+output_ligands_docked_poses_path = os.path.join(abs_path_to_file,"CL_Results/docked_poses")
+output_ligands_docking_scores_path = os.path.join(abs_path_to_file,"CL_Results/docking_scores")
 
 try:
     os.mkdir(output_ligands_docked_poses_path)
@@ -34,7 +36,7 @@ try:
 except FileExistsError:
     pass
 
-docking_configuration_path = os.path.join(output_dir, "Glide_DockStream_Conf.json")
+docking_configuration_path = os.path.join(output_dir, "GlideConf.json")
 
 # specify the embedding and docking JSON file as a dictionary and write it out
 ed_dict = {
@@ -127,14 +129,14 @@ configuration["logging"] = {
 configuration["parameters"] = {}
 
 # First add the paths to the Prior, Agent, and set the curriculum type to automated
-configuration["parameters"]["prior"] = "./models/random.prior.new"
-configuration["parameters"]["agent"] = "./models/random.prior.new"
+configuration["parameters"]["prior"] = os.path.join(abs_path_to_file,"models/random.prior.new")
+configuration["parameters"]["agent"] = os.path.join(abs_path_to_file,"models/random.prior.new")
 configuration["parameters"]["curriculum_type"] = "automated"
 
 # set up the Curriculum Strategy
 configuration["parameters"]["curriculum_strategy"] = {
     "name": "user_defined",         # denotes that the order of Curriculum Objectives is defined by the user
-    "max_num_iterations": 10000,     # denotes the total number of epochs to spend in the Curriculum Phase
+    "max_num_iterations": 5000,     # denotes the total number of epochs to spend in the Curriculum Phase
     # if by the end of the total epochs the last Curriculum Objective is not
     # satisfied (based on the agent achieving a score >= threshold), the run stops
     "batch_size": 128,              # specifies how many molecules are generated per epoch
@@ -147,7 +149,7 @@ configuration["parameters"]["curriculum_strategy"] = {
         }
     },
     "diversity_filter": {
-        "name": "IdenticalMurckoScaffold",         # other options are: "IdenticalTopologicalScaffold",
+        "name": "ScaffoldSimilarity",         # other options are: "IdenticalTopologicalScaffold",
         #                    "IdenticalMurckoScaffold", and "ScaffoldSimilarity"
 
         "bucket_size": 25,          # the bin size; penalization will start once this is exceeded
@@ -161,54 +163,52 @@ configuration["parameters"]["curriculum_strategy"] = {
     },
     # Curriculum Objectives are all the scoring functions that are to be sequentially activated
     "curriculum_objectives": [{
-        # 1st scoring function/curriculum objective is to obtain high QED
-        {
-            "scoring_function": {
-                # add component: calculate the QED drug-likeness score (using RDkit)
-                "name":"custom_product",
-                "parallel":False,
-                "parameters":[{
-                    "component_type": "qed_score",
-                    "name": "QED Score",# arbitrary name for the component
-                    "weight": 1 # the weight of the component (default: 1)
-                }]
-            },
-            "score_threshold": 0.8
-        },
-        # 2nd scoring function/curriculum objective is to obtain a high tanimoto similarity to the existing Malaria drugs
-        #napthyridine = 'C1=CC2=C(C=CC=N2)N=C1'
-        #aminopyridine = 'C1=CC=NC(=C1)N'
-        #imidazopyridazine = 'C1=CC2=NC=CN2N=C1'
+        # 1st scoring function below
         "scoring_function": {
             "name": "custom_product",     # this is our default one (alternative: "custom_sum")
             "parallel": False,
             "parameters": [{
-                "component_type": "tanimoto_similarity",
-                "name": "Tanimoto similarity",         # arbitrary name for the component
-                "weight": 1,                           # the weight of the component (default: 1)
-                "specific_parameters": {
-                    "smiles": ["C1=CC2=C(C=CC=N2)N=C1", "C1=CC=NC(=C1)N","C1=CC2=NC=CN2N=C1"], # a list of SMILES can be provided
-                }
-            }]             # the weight of the component (default: 1)
+                "component_type": "qed_score",     # enforce the match to a given substructure
+                "name": "QED Score",     # arbitrary name for the component
+                "weight": 1}]             # the weight of the component (default: 1)
         },
         "score_threshold": 0.8            # agent must achieve an average score of this before
         # progressing to the next Curriculum Objective
     },
-        # 3rd scoring function: Matching Substructure
+        # 2nd scoring function below
         {
             "scoring_function": {
-            "name": "custom_product",
-            "parallel": False,
-            "parameters": [{
-                "component_type": "matching_substructure",
-                "name": "Full Substructure",
-                "specific_parameters": {
-                    "smiles": ["C1=CC2=C(C=CC=N2)N=C1", "C1=CC=NC(=C1)N","C1=CC2=NC=CN2N=C1"]
-                },
-                "weight": 1}]
+                "name": "custom_product",
+                "parallel": False,
+                "parameters": [{
+                    "component_type": "tanimoto_similarity",
+                    "name": "Tanimoto Similarity",
+                    "specific_parameters": {
+                        "smiles": [
+                            "C1=CC2=C(C=CC=N2)N=C1", "C1=CC=NC(=C1)N","C1=CC2=NC=CN2N=C1"
+                        ]
+                    },
+                    "weight": 1}]
             },
-        "score_threshold": 0.8
-        }
+            "score_threshold": 0.8
+        },
+        # 3rd scoring function below
+        {
+            "scoring_function": {
+                "name": "custom_product",
+                "parallel": False,
+                "parameters": [{
+                    "component_type": "matching_substructure",
+                    "name": "Full Substructure",
+                    "specific_parameters": {
+                        "smiles": [
+                            "C1=CC2=C(C=CC=N2)N=C1", "C1=CC=NC(=C1)N","C1=CC2=NC=CN2N=C1"
+                        ]
+                    },
+                    "weight": 1}]
+            },
+            "score_threshold": 0.8
+        },
     ]
 }
 
@@ -219,7 +219,7 @@ configuration["parameters"]["production_strategy"] = {
                                     # retain it here since the last Curriculum Objective is the same as
                                     # Production Objective. Previous top compounds will be relevant
     
-  "number_of_steps": 3500,         # number of epochs to run the Production Phase
+  "number_of_steps": 5000,         # number of epochs to run the Production Phase
   "batch_size": 128,              # specifies how many molecules are generated per epoch
   "learning_rate": 0.0001,        # sets how strongly the agent is influenced by each epoch
   "sigma": 128,                   # used to calculate the "augmented likelihood", see publication
@@ -276,6 +276,6 @@ configuration["parameters"]["production_strategy"] = {
     }
 }
 
-configuration_JSON_path = os.path.join(output_dir, "CL_config.json")
+configuration_JSON_path = os.path.join(output_dir, "CLConf.json")
 with open(configuration_JSON_path, 'w') as f:
     json.dump(configuration, f, indent=4)

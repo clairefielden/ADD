@@ -10,16 +10,21 @@ clear='\033[0m'
 
 echo -e "${red}Note:${clear} Ensure that conda has been installed correctly."
 # Prepare Reinvent environment
-mamba shell init
-cd Reinvent && mamba env create -f reinvent.yml
+conda shell init
+cd Reinvent && conda env create -f reinvent.yml
 cd ..
-# Prepare Dockstream Environment
-cd DockStream && mamba env create -f environment.yml
+# Prepare Dockstream Environments
+cd DockStream && conda env create -f environment.yml
+cd DockStream && conda env create -f environment_full.yml
 cd ..
 #Prepare RLMOL Environment
-cd rlmol && mamba env create -f env.yml
+cd rlmol && conda env create -f env.yml
+cd ..
 # Init bash
-mamba init bash
+conda init bash
+#install ccdc conda channel
+#conda install --channel=https://conda.ccdc.cam.ac.uk csd-python-api
+
 
 # Create output directory
 if ! test -d "$OUTPUT_DIR"; then

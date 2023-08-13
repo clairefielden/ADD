@@ -1,4 +1,4 @@
-License: XXX@YYY.server.com ($SCHROD_LICENSE_FILE)
+License: XXX@YYY.server.com ($SCHROD_LICENSE_FILE) #C:\ProgramData\Schrodinger
 lmutil - Copyright (c) 1989-2017 Flexera Software LLC. All Rights Reserved.
 Flexible License Manager status on Mon 7/6/2020 12:48
 

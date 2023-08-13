@@ -1,6 +1,6 @@
 name: DockStreamFull
 channels:
-  - file:///opt/scp/software/ccdc/2020.0.1/Python_API_2020/ccdc_conda_channel
+#  - file:///opt/scp/software/ccdc/2020.0.1/Python_API_2020/ccdc_conda_channel
   - conda-forge
   - omnia
   - plotly

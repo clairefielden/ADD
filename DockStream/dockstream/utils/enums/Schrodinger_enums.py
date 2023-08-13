@@ -2,7 +2,9 @@ from dockstream.utils.enums.target_preparation_enum import TargetPreparationEnum
 from dockstream.utils.enums.docking_enum import DockingConfigurationEnum
 
 from dockstream.utils.enums.ligand_preparation_enum import LigandPreparationEnum
+import os
 
+SCHRODINGER_DIR = "/mnt/e/Schrodinger2022"
 
 class LigprepLigandPreparationEnum(LigandPreparationEnum):
 
@@ -68,7 +70,7 @@ class SchrodingerExecutablesEnum:
     # executable "sdconvert" + parameters
     # ---------
     SDCONVERT = "sdconvert"
-    SDCONVERT_CALL = "$SCHRODINGER/utilities/sdconvert"
+    SDCONVERT_CALL = os.path.join(SCHRODINGER_DIR,"utilities/sdconvert")
     SDCONVERT_HELP = ""
     SDCONVERT_HELP_IDENTIFICATION_STRING = "mae : Maestro format"
     SDCONVERT_A = "-a"                                               # append structures to the output file
@@ -84,7 +86,7 @@ class SchrodingerExecutablesEnum:
     # executable "ligprep" + parameters
     # ---------
     LIGPREP = "ligprep"
-    LIGPREP_CALL = "$SCHRODINGER/ligprep"
+    LIGPREP_CALL = os.path.join(SCHRODINGER_DIR,"ligprep")
     LIGPREP_INPUT_ISMI = "-ismi"                                     # SMI input followed by <path> (alternatives: "-icsv", "-imae" and "-isd")
     LIGPREP_OUTPUT_OSD = "-osd"                                      # SD(F) output followed by <path> (alternative: "-omae")
     LIGPREP_INP_CONFIG = "-inp"                                      # not used in DockStream, but would be an option to feed parameters from configuration file
@@ -116,7 +118,7 @@ class SchrodingerExecutablesEnum:
     # note, that you can get the full list of parameters with "$SCHRODINGER/glide -k"
     # ---------
     GLIDE = "glide"
-    GLIDE_CALL = "$SCHRODINGER/glide"
+    GLIDE_CALL = os.path.join(SCHRODINGER_DIR,"glide")
     GLIDE_HELP = "-h"
     GLIDE_HELP_IDENTIFICATION_STRING = "positional arguments:"
     GLIDE_WAIT = "-WAIT"
