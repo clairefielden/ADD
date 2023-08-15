@@ -86,8 +86,8 @@ class PATH_OPENEYEHYBRID_EXAMPLES:
 class PATH_SCHRODINGER_EXAMPLES:
     GRIDFILE = "tests/tests_data/Schrodinger/1UYD_grid.zip"
     CONSTRAINTS_GRIDFILE = "tests/tests_data/Schrodinger/1UYD_hbond_constraints.zip"
-    #LICADMIN_FILE = "tests/tests_data/Schrodinger/licadmin_output.txt"
-    LICADMIN_FILE = "/mnt/c/ProgramData/Schrodinger/licenses/80_client_2023-08-11_mslogin.lic"
+    LICADMIN_FILE = "tests/tests_data/Schrodinger/licadmin_output.txt"
+
     # try to find the internal value and return
     def __getattr__(self, name):
         if name in self:
