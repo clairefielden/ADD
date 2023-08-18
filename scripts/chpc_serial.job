@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #PBS -l select=1
 #PBS -P CSCI1142
 #PBS -q serial
@@ -11,9 +11,12 @@
 module load chpc/python/anaconda/3
 cd /mnt/lustre/users/cfielden/fldcla001/ADD
 conda activate /home/cfielden/.conda/envs/reinvent.v3.2
+
 python ./Reinvent/input.py ./src/exploreHigh/exploreH_a.py
 python ./Reinvent/input.py ./src/exploreHigh/exploreH_b.py
 python ./Reinvent/input.py ./src/exploreHigh/exploreH_c.py
 python ./Reinvent/input.py ./src/exploreHigh/exploreH_d.py
 python ./Reinvent/input.py ./src/exploreHigh/exploreH_e.py
 python ./Reinvent/input.py ./src/exploreHigh/exploreH_f.py
+
+conda deactivate /home/cfielden/.conda/envs/reinvent.v3.2
