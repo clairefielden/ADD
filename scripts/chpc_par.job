@@ -10,7 +10,7 @@
 
 module load chpc/python/anaconda/3
 cd /mnt/lustre/users/cfielden/fldcla001/ADD
-source /home/cfielden/.conda/envs/reinvent.v3.2/bin/activate
+conda activate /home/cfielden/.conda/envs/reinvent.v3.2
 python ./Reinvent/input.py ./src/exploreHigh/exploreH_a.py
 python ./Reinvent/input.py ./src/exploreHigh/exploreH_b.py
 python ./Reinvent/input.py ./src/exploreHigh/exploreH_c.py
