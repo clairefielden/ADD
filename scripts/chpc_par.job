@@ -8,6 +8,7 @@
 #PBS -m abe
 #PBS -M fldcla001@myuct.ac.za
 
+cp -f /home/cfielden/.conda/envs/reinvent.v3.2/lib/python3.7/site-packages/reinvent_scoring/scoring/score_components/standard/jaccard_distance.py /mnt/lustre/users/cfielden/fldcla001/ADD/jaccard_distance.py
 module load chpc/python/anaconda/3-2021.11
 source /apps/chpc/anaconda/3-2021.11/etc/profile.d/conda.sh
 source activate /home/cfielden/.conda/envs/reinvent.v3.2
