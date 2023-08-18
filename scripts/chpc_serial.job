@@ -1,5 +1,4 @@
 #!/bin/sh
-#PBS -n explore_high
 #PBS -l select=1
 #PBS -P CSCI1142
 #PBS -q serial
