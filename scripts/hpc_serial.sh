@@ -1,20 +1,17 @@
 #!/bin/sh
-#SBATCH --account compsci
-#SBATCH --partition=ada
-#SBATCH --time=10:00:00
-#SBATCH --nodes=1 --ntasks=4
-#SBATCH --job-name="Explore_High"
-#SBATCH --mail-user=fldcla001@myuct.ac.za
-#SBATCH --mail-type=ALL
+#PBS -n explore_high
+#PBS -l select=1
+#PBS -P CSCI1142
+#PBS -q serial
+#PBS -l walltime=40:00:00
+#PBS -o /mnt/lustre/cfielden/fldcla001/ADD/results/explore_high.out
+#PBS -m abe
+#PBS -M fldcla001@myuct.ac.za
 
-module load python/anaconda-python-3.7
+module load chpc/chem/anaconda3-2021.11
 cd /scratch/fldcla001/ADD/Reinvent
-conda env create -f reinvent.yml
-cd ..
-cd DockStream
-conda env create -f environment.yml
-cd ..
 mkdir results
+conda activate reinvent.v3.2
 python ./Reinvent/input.py ./src/exploreHigh/exploreH_a.py
 python ./Reinvent/input.py ./src/exploreHigh/exploreH_b.py
 python ./Reinvent/input.py ./src/exploreHigh/exploreH_c.py
