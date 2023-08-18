@@ -55,11 +55,11 @@
         },
         "output": {
           "poses": {
-            "poses_path": "/home/cfielden/lustre/fldcla001/ADD/results/exploreLow/ligands_docked_d.sdf",
+            "poses_path": "/scratch/fldcla001/ADD/results/exploreLow/ligands_docked_d.sdf",
             "overwrite": false
           },
           "scores": {
-            "scores_path": "/home/cfielden/lustre/fldcla001/ADD/results/exploreLow/ligand_scores_d.csv",
+            "scores_path": "/scratch/fldcla001/ADD/results/exploreLow/ligand_scores_d.csv",
             "overwrite": false
           }
         }

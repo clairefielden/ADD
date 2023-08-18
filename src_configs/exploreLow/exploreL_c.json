@@ -129,9 +129,9 @@
                                 "high": -8,
                                 "k": 0.25
                             },
-                            "configuration_path": "/home/cfielden/lustre/fldcla001/ADD/src/exploreLow/docking_c.json",
-                            "docker_script_path": "/home/cfielden/lustre/fldcla001/ADD/DockStream/docker.py",
-                            "environment_path": "/home/cfielden/.conda/envs/DockStream/bin/python"
+                            "configuration_path": "/scratch/fldcla001/ADD/src/exploreLow/docking_c.json",
+                            "docker_script_path": "/scratch/fldcla001/ADD/DockStream/docker.py",
+                            "environment_path": "/home/fldcla001/.conda/envs/DockStream/bin/python"
                         }
                     }
                 ]

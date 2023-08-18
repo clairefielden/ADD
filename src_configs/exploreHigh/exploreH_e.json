@@ -6,14 +6,14 @@
         "sender": "http://0.0.0.1",
         "recipient": "local",
         "logging_frequency": 100,
-        "logging_path": "/home/cfielden/lustre/fldcla001/ADD/results/exploreHigh/progress_e.log",
-        "result_folder": "/home/cfielden/lustre/fldcla001/ADD/results/exploreHigh/results_e",
+        "logging_path": "/scratch/fldcla001/ADD/results/exploreHigh/progress_e.log",
+        "result_folder": "/scratch/fldcla001/ADD/results/exploreHigh/results_e",
         "job_name": "Explorative Behaviour with High Threshold",
         "job_id": "Explore_High_E"
     },
     "parameters": {
-        "prior": "/home/cfielden/lustre/fldcla001/ADD/models/random.prior.new",
-        "agent": "/home/cfielden/lustre/fldcla001/ADD/models/random.prior.new",
+        "prior": "/scratch/fldcla001/ADD/models/random.prior.new",
+        "agent": "/scratch/fldcla001/ADD/models/random.prior.new",
         "curriculum_type": "automated",
         "curriculum_strategy": {
             "name": "user_defined",
@@ -129,9 +129,9 @@
                                 "high": -8,
                                 "k": 0.25
                             },
-                            "configuration_path": "/home/cfielden/lustre/fldcla001/ADD/src/exploreHigh/docking_e.json",
-                            "docker_script_path": "/home/cfielden/lustre/fldcla001/ADD/DockStream/docker.py",
-                            "environment_path": "/home/cfielden/.conda/envs/DockStream/bin/python"
+                            "configuration_path": "/scratch/fldcla001/ADD/src/exploreHigh/docking_e.json",
+                            "docker_script_path": "/scratch/fldcla001/ADD/DockStream/docker.py",
+                            "environment_path": "/home/fldcla001/.conda/envs/DockStream/bin/python"
                         }
                     }
                 ]
