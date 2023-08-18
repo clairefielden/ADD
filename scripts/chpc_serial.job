@@ -9,7 +9,7 @@
 #PBS -m abe
 #PBS -M fldcla001@myuct.ac.za
 
-module load chpc/chem/anaconda3-2021.11
+module load chpc/python/anaconda/3
 cd /mnt/lustre/users/cfielden/fldcla001/ADD/Reinvent
 mkdir results
 conda activate reinvent.v3.2
