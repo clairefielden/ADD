@@ -12,7 +12,7 @@ from reinvent_scoring.scoring.score_components import BaseScoreComponent
 from reinvent_scoring.scoring.score_summary import ComponentSummary
 
 _fscores = None
-abs_path = "/mnt/e/PycharmProjects/ADD/src/fpscores.pkl.gz"
+abs_path = "/mnt/lustre/users/cfielden/fldcla001/ADD/fpscores.pkl.gz"
 
 class JaccardDistance(BaseScoreComponent):
     def __init__(self, parameters: ComponentParameters):
