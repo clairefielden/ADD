@@ -17,5 +17,3 @@ cd /mnt/lustre/users/cfielden/fldcla001/ADD/schrod
 python schrod.py
 cd ..
 python Reinvent/input.py schrod/schrod_conf.json
-
-source deactivate /home/cfielden/.conda/envs/reinvent.v3.2

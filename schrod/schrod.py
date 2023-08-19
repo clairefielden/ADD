@@ -11,7 +11,7 @@ abs_path_to_file = "/home/cfielden/lustre/fldcla001/ADD"
 reinvent_dir = os.path.join(abs_path_to_file,"Reinvent")
 reinvent_env = os.path.expanduser("/home/cfielden/.conda/envs/reinvent.v3.2")
 output_dir = os.path.join(abs_path_to_file,"schrod/results")
-log_file_docking = output_dir+"/schrod_docking.log
+log_file_docking = output_dir+"/schrod_docking.log"
 
 try:
     os.makedirs(output_dir)
@@ -56,7 +56,7 @@ ed_dict = {
           "parameters": {
             "prefix_execution": "module load schrodinger/2019-4",
             "parallelization": {
-                "number_cores": 2
+                "number_cores": 4
             },
             "use_epik": {
               "target_pH": 7.0,
@@ -80,7 +80,7 @@ ed_dict = {
           "prefix_execution": "module load schrodinger/2019-4", # will be executed before a program call
           "parallelization": {                              # if present, the number of cores to be used
                                                             # can be specified
-            "number_cores": 2
+            "number_cores": 4
           },
           "glide_flags": {                                  # all all command-line flags for Glide here 
             "-HOST": "localhost"
@@ -219,7 +219,7 @@ configuration["parameters"]["production_strategy"] = {
                                     # retain it here since the last Curriculum Objective is the same as
                                     # Production Objective. Previous top compounds will be relevant
     
-  "number_of_steps": 2,         # number of epochs to run the Production Phase
+  "number_of_steps": 5000,         # number of epochs to run the Production Phase
   "batch_size": 128,              # specifies how many molecules are generated per epoch
   "learning_rate": 0.0001,        # sets how strongly the agent is influenced by each epoch
   "sigma": 128,                   # used to calculate the "augmented likelihood", see publication
