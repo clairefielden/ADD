@@ -274,6 +274,6 @@ configuration["parameters"]["production_strategy"] = {
     }
 }
 
-configuration_JSON_path = os.path.join(output_dir, "schrod/schrod_conf.json")
+configuration_JSON_path = os.path.join(abs_path_to_file, "schrod/schrod_conf.json")
 with open(configuration_JSON_path, 'w') as f:
     json.dump(configuration, f, indent=4)
