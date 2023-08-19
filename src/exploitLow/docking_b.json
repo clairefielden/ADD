@@ -37,7 +37,7 @@
         "parameters": {
           "binary_location": "/home/cfielden/lustre/fldcla001/ADD/autodock_vina_1_1_2_linux_x86/bin",
           "parallelization": {
-            "number_cores": 4
+            "number_cores": -1
           },
           "seed": 42,
           "receptor_pdbqt_path": [
