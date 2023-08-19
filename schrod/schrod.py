@@ -10,7 +10,8 @@ abs_path_to_file = "/home/cfielden/lustre/fldcla001/ADD"
 
 reinvent_dir = os.path.join(abs_path_to_file,"Reinvent")
 reinvent_env = os.path.expanduser("/home/cfielden/.conda/envs/reinvent.v3.2")
-output_dir = os.path.join(abs_path_to_file,"schrod_results")
+output_dir = os.path.join(abs_path_to_file,"schrod/results")
+log_file_docking = output_dir+"/schrod_docking.log
 
 try:
     os.makedirs(output_dir)
@@ -24,8 +25,8 @@ dockstream_env = os.path.join("/home/cfielden/.conda/envs/DockStream/bin/python"
 # generate the path to the DockStream entry points
 docker_path = os.path.join(dockstream_dir, "docker.py")
 grid_file_path = os.path.join(abs_path_to_file,"models/pfpi4k_grid.zip")
-output_ligands_docked_poses_path = os.path.join(abs_path_to_file,"schrod_results/docked_poses")
-output_ligands_docking_scores_path = os.path.join(abs_path_to_file,"schrod_results/docking_scores")
+output_ligands_docked_poses_path = os.path.join(abs_path_to_file,"schrod/results/docked_poses")
+output_ligands_docking_scores_path = os.path.join(abs_path_to_file,"schrod/results/docking_scores")
 
 try:
     os.mkdir(output_ligands_docked_poses_path)
@@ -43,7 +44,8 @@ docking_configuration_path = os.path.join(abs_path_to_file, "schrod/glide_conf.j
 ed_dict = {
   "docking": {
     "header": {                                   # general settings
-      "environment": {
+      "logging": {
+          "logfile": log_file_docking
       }
     },
     "ligand_preparation": {                       # the ligand preparation part, defines how to build the pool
