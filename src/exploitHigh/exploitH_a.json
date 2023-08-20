@@ -125,7 +125,7 @@
                         "specific_parameters": {
                             "transformation": {
                                 "transformation_type": "reverse_sigmoid",
-                                "High": -11,
+                                "low": -11,
                                 "high": -5,
                                 "k": 0.25
                             },
