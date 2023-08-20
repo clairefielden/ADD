@@ -51,7 +51,7 @@
                             }
                         ]
                     },
-                    "score_threshold": 0.15
+                    "score_threshold": 0.25
                 },
                 {
                     "scoring_function": {
