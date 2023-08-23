@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="7e64e27e-6092-4758-aefd-9cc3b613f521" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exploreLow/exploreL_b.json" beforeDir="false" afterPath="$PROJECT_DIR$/exploreLow/exploreL_b.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exploreLow/exploreL_c.json" beforeDir="false" afterPath="$PROJECT_DIR$/exploreLow/exploreL_c.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exploreLow/exploreL_d.json" beforeDir="false" afterPath="$PROJECT_DIR$/exploreLow/exploreL_d.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exploreLow/exploreL_e.json" beforeDir="false" afterPath="$PROJECT_DIR$/exploreLow/exploreL_e.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreLow/exploreL_a.job" beforeDir="false" afterPath="$PROJECT_DIR$/exploreLow/exploreL_a.job" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreLow/exploreL_b.job" beforeDir="false" afterPath="$PROJECT_DIR$/exploreLow/exploreL_b.job" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreLow/exploreL_c.job" beforeDir="false" afterPath="$PROJECT_DIR$/exploreLow/exploreL_c.job" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreLow/exploreL_d.job" beforeDir="false" afterPath="$PROJECT_DIR$/exploreLow/exploreL_d.job" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreLow/exploreL_e.job" beforeDir="false" afterPath="$PROJECT_DIR$/exploreLow/exploreL_e.job" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreLow/exploreL_f.job" beforeDir="false" afterPath="$PROJECT_DIR$/exploreLow/exploreL_f.job" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
