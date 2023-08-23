@@ -3,8 +3,8 @@
 #PBS -P CSCI1142
 #PBS -q normal
 #PBS -l walltime=40:00:00
-#PBS -o /mnt/lustre/users/cfielden/exploreH_a.out
-#PBS -e /mnt/lustre/users/cfielden/exploreH_a.err
+#PBS -o /mnt/lustre/users/cfielden/exploreH_f.out
+#PBS -e /mnt/lustre/users/cfielden/exploreH_f.err
 #PBS -m abe
 #PBS -M fldcla001@myuct.ac.za
 
