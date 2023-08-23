@@ -45,8 +45,15 @@
                         "parallel": true,
                         "parameters": [
                             {
-                                "component_type": "qed_score",
-                                "name": "QED Score",
+                                "component_type": "tanimoto_similarity",
+                                "name": "Tanimoto Similarity",
+                                "specific_parameters": {
+                                    "smiles": [
+                                        "C1=CC2=C(C=CC=N2)N=C1",
+                                        "C1=CC=NC(=C1)N",
+                                        "C1=CC2=NC=CN2N=C1"
+                                    ]
+                                },
                                 "weight": 1
                             }
                         ]
@@ -59,15 +66,8 @@
                         "parallel": true,
                         "parameters": [
                             {
-                                "component_type": "tanimoto_similarity",
-                                "name": "Tanimoto Similarity",
-                                "specific_parameters": {
-                                    "smiles": [
-                                        "C1=CC2=C(C=CC=N2)N=C1",
-                                        "C1=CC=NC(=C1)N",
-                                        "C1=CC2=NC=CN2N=C1"
-                                    ]
-                                },
+                                "component_type": "qed_score",
+                                "name": "QED Score",
                                 "weight": 1
                             }
                         ]
