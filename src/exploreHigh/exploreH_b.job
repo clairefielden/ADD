@@ -1,8 +1,8 @@
 #!/bin/bash
-#PBS -l select=10:ncpus=4:mpiprocs=24
+#PBS -q gpu_2
+#PBS -l select=1:ncpus=10:ngpus=1
 #PBS -P CSCI1142
-#PBS -q normal
-#PBS -l walltime=40:00:00
+#PBS -l walltime=10:00:00
 #PBS -o /mnt/lustre/users/cfielden/exploreH_b.out
 #PBS -e /mnt/lustre/users/cfielden/exploreH_b.err
 #PBS -m abe
