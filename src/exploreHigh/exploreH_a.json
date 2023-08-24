@@ -86,6 +86,8 @@
                             }
                         ]
                     },
+                    "score_threshold": 7.5
+                }
             ]
         },
         "production_strategy": {

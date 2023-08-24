@@ -3,7 +3,7 @@
 #PBS -q gpu_1
 #PBS -l select=1:ncpus=10:ngpus=1
 #PBS -P CSCI1142
-#PBS -l walltime=10:00:00
+#PBS -l walltime=12:00:00
 #PBS -o /mnt/lustre/users/cfielden/exploreL_f.out
 #PBS -e /mnt/lustre/users/cfielden/exploreL_f.err
 #PBS -m abe

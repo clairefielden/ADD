@@ -1,13 +1,13 @@
 #!/bin/bash
-#PBS -l select=10:ncpus=4:mpiprocs=24
+#PBS -N exploreHighD
+#PBS -q gpu_1
+#PBS -l select=1:ncpus=10:ngpus=1
 #PBS -P CSCI1142
-#PBS -q normal
-#PBS -l walltime=40:00:00
+#PBS -l walltime=12:00:00
 #PBS -o /mnt/lustre/users/cfielden/exploreH_d.out
 #PBS -e /mnt/lustre/users/cfielden/exploreH_d.err
 #PBS -m abe
 #PBS -M fldcla001@myuct.ac.za
-
 module load chpc/python/anaconda/3-2021.11
 module load chpc/schrodinger/2019-4
 source /apps/chpc/anaconda/3-2021.11/etc/profile.d/conda.sh
