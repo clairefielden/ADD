@@ -47,3 +47,14 @@
 2023-08-25 11:16:18 - Starting generation of pool Ligprep_pool.
 2023-08-25 11:16:18 - Input type has not been explicitly specified, will attempt to infer it - this is not recommended.
 2023-08-25 11:16:18 - Inferred pool type CONSOLE.
+2023-08-25 12:29:27 - |█████████████████████████████████████████████████████████████████| 100.0% 
+2023-08-25 12:29:27 - It appears ligprep could not embed all 253 ligands (12 were not found) - compounds not embedded might be ignored at the docking stage.
+2023-08-25 12:29:27 - Completed construction of pool Ligprep_pool.
+2023-08-25 12:29:27 - Starting docking run Glide_run.
+2023-08-25 12:30:39 - |█████████████████████████████████████████████████████████████████| 100.0% 
+2023-08-25 12:30:40 - Completed docking run Glide_run.
+2023-08-25 12:30:44 - DockStream version used: 1.0.0
+2023-08-25 12:30:44 - Could not load CCDC / Gold docker - if another backend is being used, you can safely ignore this warning. The exception message reads: No module named 'ccdc'
+2023-08-25 12:30:44 - Starting generation of pool Ligprep_pool.
+2023-08-25 12:30:44 - Input type has not been explicitly specified, will attempt to infer it - this is not recommended.
+2023-08-25 12:30:44 - Inferred pool type CONSOLE.
