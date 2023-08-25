@@ -1,0 +1,5 @@
+2023-08-25 04:02:33 - DockStream version used: 1.0.0
+2023-08-25 04:02:34 - Could not load CCDC / Gold docker - if another backend is being used, you can safely ignore this warning. The exception message reads: No module named 'ccdc'
+2023-08-25 04:02:34 - Starting generation of pool Ligprep_pool.
+2023-08-25 04:02:34 - Input type has not been explicitly specified, will attempt to infer it - this is not recommended.
+2023-08-25 04:02:34 - Inferred pool type CONSOLE.
