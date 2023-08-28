@@ -1,0 +1,72 @@
+{
+  "docking": {
+    "header": {
+      "logging": {
+        "logfile": "/home/cfielden/lustre/fldcla001/ADD/results/bench/docking_h.log"
+      }
+    },
+    "ligand_preparation": {
+      "embedding_pools": [
+        {
+          "pool_id": "Ligprep_pool",
+          "type": "Ligprep",
+          "parameters": {
+            "prefix_execution": "module load schrodinger/2019-4",
+            "parallelization": {
+              "number_cores": -1
+            },
+            "use_epik": {
+              "target_pH": 7.0,
+              "pH_tolerance": 2.0
+            },
+            "force_field": "OPLS3e"
+          },
+          "input": {
+            "standardize_smiles": false,
+            "input_path": "console"
+          }
+        }
+      ]
+    },
+    "docking_runs": [
+      {
+        "backend": "Glide",
+        "run_id": "Glide_run",
+        "input_pools": [
+          "Ligprep_pool"
+        ],
+        "parameters": {
+          "prefix_execution": "module load schrodinger/2019-4",
+          "parallelization": {
+            "number_cores": -1
+          },
+          "glide_flags": {
+            "-HOST": "localhost"
+          },
+          "glide_keywords": {
+            "AMIDE_MODE": "trans",
+            "EXPANDED_SAMPLING": "True",
+            "GRIDFILE": "/home/cfielden/lustre/fldcla001/ADD/models/pfpi4k_grid.zip",
+            "NENHANCED_SAMPLING": "2",
+            "POSE_OUTTYPE": "ligandlib_sd",
+            "POSES_PER_LIG": "3",
+            "POSTDOCK_NPOSE": "15",
+            "POSTDOCKSTRAIN": "True",
+            "PRECISION": "HTVS",
+            "REWARD_INTRA_HBONDS": "True"
+          }
+        },
+        "output": {
+          "poses": {
+            "poses_path": "/home/cfielden/lustre/fldcla001/ADD/results/bench/results_h/ligands_docked_h.sdf",
+            "overwrite": false
+          },
+          "scores": {
+            "scores_path": "/home/cfielden/lustre/fldcla001/ADD/results/bench/results_h/ligand_scores_h.csv",
+            "overwrite": false
+          }
+        }
+      }
+    ]
+  }
+}
