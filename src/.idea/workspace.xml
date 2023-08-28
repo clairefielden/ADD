@@ -9,10 +9,58 @@
   <component name="ChangeListManager">
     <list default="true" id="7e64e27e-6092-4758-aefd-9cc3b613f521" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exploitHigh/exploitH_d.job" beforeDir="false" afterPath="$PROJECT_DIR$/exploitHigh/exploitH_d.job" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exploitLow/exploitL_d.job" beforeDir="false" afterPath="$PROJECT_DIR$/exploitLow/exploitL_d.job" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exploreHigh/exploreH_d.job" beforeDir="false" afterPath="$PROJECT_DIR$/exploreHigh/exploreH_d.job" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exploreLow/exploreL_d.job" beforeDir="false" afterPath="$PROJECT_DIR$/exploreLow/exploreL_d.job" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../src_configs/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../src_configs/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/.idea/src.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploitHigh/docking_a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploitHigh/docking_b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploitHigh/docking_c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploitHigh/docking_d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploitHigh/docking_e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploitHigh/docking_f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploitHigh/exploitH_a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploitHigh/exploitH_b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploitHigh/exploitH_c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploitHigh/exploitH_d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploitHigh/exploitH_e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploitHigh/exploitH_f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploitLow/docking_a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploitLow/docking_b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploitLow/docking_c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploitLow/docking_d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploitLow/docking_e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploitLow/docking_f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploitLow/exploitL_a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploitLow/exploitL_b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploitLow/exploitL_c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploitLow/exploitL_d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploitLow/exploitL_e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploitLow/exploitL_f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploreHigh/docking_a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploreHigh/docking_b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploreHigh/docking_c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploreHigh/docking_d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploreHigh/docking_e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploreHigh/docking_f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploreHigh/exploreH_a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploreHigh/exploreH_b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploreHigh/exploreH_c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploreHigh/exploreH_d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploreHigh/exploreH_e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploreHigh/exploreH_f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploreLow/docking_a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploreLow/docking_b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploreLow/docking_c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploreLow/docking_d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploreLow/docking_e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploreLow/docking_f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploreLow/exploreL_a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploreLow/exploreL_b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploreLow/exploreL_c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploreLow/exploreL_d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploreLow/exploreL_e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src_configs/exploreLow/exploreL_f.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +82,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/User/Desktop/ADD/ADD/schrod",
+    "last_opened_file_path": "C:/Users/User/Desktop/ADD/ADD/src_configs",
     "run.code.analysis.last.selected.profile": "aDefault"
   }
 }]]></component>

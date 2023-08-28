@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="90abf965-d4d4-4b50-b36d-ac0951cda1c0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/src_configs.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../src/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/src.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitHigh/chpc_serial.job" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitHigh/docking_a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitHigh/docking_b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitHigh/docking_c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitHigh/docking_d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitHigh/docking_e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitHigh/docking_f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitHigh/exploitH_a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitHigh/exploitH_b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitHigh/exploitH_c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitHigh/exploitH_d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitHigh/exploitH_e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitHigh/exploitH_f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitLow/chpc_serial.job" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitLow/docking_a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitLow/docking_b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitLow/docking_c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitLow/docking_d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitLow/docking_e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitLow/docking_f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitLow/exploitL_a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitLow/exploitL_b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitLow/exploitL_c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitLow/exploitL_d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitLow/exploitL_e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploitLow/exploitL_f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreHigh/chpc_serial.job" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreHigh/docking_a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreHigh/docking_b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreHigh/docking_c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreHigh/docking_d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreHigh/docking_e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreHigh/docking_f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreHigh/exploreH_a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreHigh/exploreH_b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreHigh/exploreH_c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreHigh/exploreH_d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreHigh/exploreH_e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreHigh/exploreH_f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreLow/chpc_serial.job" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreLow/docking_a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreLow/docking_b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreLow/docking_c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreLow/docking_d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreLow/docking_e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreLow/docking_f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreLow/exploreL_a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreLow/exploreL_b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreLow/exploreL_c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreLow/exploreL_d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreLow/exploreL_e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exploreLow/exploreL_f.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2UbPWnVPhbSXAkAnekaeCJzmNoZ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/User/Desktop/ADD/ADD/src_configs"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="90abf965-d4d4-4b50-b36d-ac0951cda1c0" name="Changes" comment="" />
+      <created>1693205341011</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1693205341011</updated>
+    </task>
+    <servers />
+  </component>
+</project>
