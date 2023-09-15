@@ -150,12 +150,14 @@ A pretrained RNN making use of 3 stacked LSTM layers. It has been fully trained 
 2. `*_nll.csv`: The NLL loss of the agent throughout its *Production Phase*
 3. `*_ds.csv`: The docking scores throughout the agent's *Production Phase*
 
-### Future Work
+### You can access my [research paper](https://github.com/clairefielden/ADD/blob/4523faa1112a4d54c010ec1030715ef9dcf8cdfe/Documentation/FLDCLA001%20-%20ADD%20Final%20Paper.pdf) and [PDB validation](https://github.com/clairefielden/ADD/blob/4523faa1112a4d54c010ec1030715ef9dcf8cdfe/Documentation/4d0l_full_validation.pdf) of *Phosphatidylinositol 4-kinase III beta-PIK93 in a complex with Rab11a-GTP
+gammaS* in the `Documentation` folder
+
+## Future Work
 In this work, the *Production Phase* consisted of 100 episodes, and thus the true benefit of Diversity Oriented Synthesis was not exhibited. For exploration to improve standard RL hit-to-lead optimization, sophisticated
 Curriculum Progression Criteria should be made use of to avoid mode collapse. Moreover, a longer Curriculum Phase is required to accommodate the combination of sophistication and exploration. This shows promise in proposing novel regions of chemical space. Such propositions would be worth the Curriculum Phase training time, which is computationally inexpensive, due to expected improvement in Production Phase convergence time and ligand quality.
 
 ## Acknowledgements
-Give credit here.
 - This project was inspired by Rob Maccallum's work, RLMOL
 - Thank you to my supervisor :)
 - Many thanks to the CSIR’s Centre for High Performance Computing [(CHPC)](https://www.chpc.ac.za/), who provided computational resources and access to the Schrödinger Software Suite
