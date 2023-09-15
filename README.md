@@ -1,7 +1,7 @@
 # Improving Simulated Molecular Docking using Curriculum Learning
 > This work improves upon current Reinforcement Learning approaches 
 towards the design of potential antimalarial drugs.
-> A demonstration of how each aspect of this codebase was used for this research is provided [_here_](https://github.com/clairefielden/ADD/blob/d269dacc6855e29b3f2793c4c2fc2a7f2b1a090d/CurriculumLearning_Glide.ipynb)
+> A demonstration of how each aspect of this codebase was used for this research is provided [_here_](https://colab.research.google.com/github/clairefielden/ADD/blob/master/Curriculum_Learning_Dockstream_Demo.ipynb)
 
 ## Table of Contents
 * [Contributions](#contributions)
