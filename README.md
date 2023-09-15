@@ -150,8 +150,7 @@ A pretrained RNN making use of 3 stacked LSTM layers. It has been fully trained 
 2. `*_nll.csv`: The NLL loss of the agent throughout its *Production Phase*
 3. `*_ds.csv`: The docking scores throughout the agent's *Production Phase*
 
-### You can access my [research paper](https://github.com/clairefielden/ADD/blob/4523faa1112a4d54c010ec1030715ef9dcf8cdfe/Documentation/FLDCLA001%20-%20ADD%20Final%20Paper.pdf) and [PDB validation](https://github.com/clairefielden/ADD/blob/4523faa1112a4d54c010ec1030715ef9dcf8cdfe/Documentation/4d0l_full_validation.pdf) of *Phosphatidylinositol 4-kinase III beta-PIK93 in a complex with Rab11a-GTP
-gammaS* in the `Documentation` folder
+#### You can access my [research paper](https://github.com/clairefielden/ADD/blob/4523faa1112a4d54c010ec1030715ef9dcf8cdfe/Documentation/FLDCLA001%20-%20ADD%20Final%20Paper.pdf) and [PDB validation](https://github.com/clairefielden/ADD/blob/4523faa1112a4d54c010ec1030715ef9dcf8cdfe/Documentation/4d0l_full_validation.pdf) of *Phosphatidylinositol 4-kinase III beta-PIK93 in a complex with Rab11a-GTP gammaS* in the `Documentation` folder
 
 ## Future Work
 In this work, the *Production Phase* consisted of 100 episodes, and thus the true benefit of Diversity Oriented Synthesis was not exhibited. For exploration to improve standard RL hit-to-lead optimization, sophisticated
