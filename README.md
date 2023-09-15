@@ -160,6 +160,7 @@ Curriculum Progression Criteria should be made use of to avoid mode collapse. Mo
 - This project was inspired by Rob Maccallum's work, RLMOL
 - Thank you to my supervisor :)
 - Many thanks to the CSIR’s Centre for High Performance Computing [(CHPC)](https://www.chpc.ac.za/), who provided computational resources and access to the Schrödinger Software Suite
+- Thank you to my bestie who lent me his computer for 2 weeks because I had no idea how to use the cluster, my leg was broken, and I had no access to a GPU. He is the real hero
 
 
 ## Contact
