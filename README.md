@@ -5,13 +5,13 @@ towards the design of potential antimalarial drugs.
 
 ## Table of Contents
 * [Contributions](#contributions)
-* [Requirements](#platforms)
-* [Experiments](#experiment)
-* [Algorithms](#algorithm)
-* [Chemistry](#chem)
-* [Models](#model)
+* [Requirements](#requirements)
+* [Experiments](#experiments)
+* [Algorithms](#algorithms)
+* [Chemistry](#chemistry)
+* [Models](#models)
 * [Results and Documentation](#results)
-* [Future Work](#future)
+* [Future Work](#futurework)
 * [Acknowledgements](#acknowledgements)
 * [Contact](#contact)
 
